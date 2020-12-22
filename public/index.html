@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <title>Đại hội Đại biểu Hội Sinh Viên Việt Nam</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="piechart"></div>
+    <div class="space"></div>
+    <div id="infor"></div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCqNpTFYxF2eQ1XD3HeV6x1y-I8b6al5s",
+        authDomain: "dhdb-hsv.firebaseapp.com",
+        projectId: "dhdb-hsv",
+        storageBucket: "dhdb-hsv.appspot.com",
+        messagingSenderId: "1008123776206",
+        appId: "1:1008123776206:web:50c2d7a549f79eaabb149f",
+        measurementId: "G-Y7H6CVYW48",
+        databaseURL: "https://dhdb-hsv-default-rtdb.firebaseio.com",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.database();
+      const googleProvider = new firebase.auth.GoogleAuthProvider();
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>

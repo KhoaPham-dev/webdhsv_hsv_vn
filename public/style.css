@@ -1,0 +1,18 @@
+body {
+  background-image: url("./background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#piechart {
+  position: absolute;
+  left: 3%;
+  top: 30%;
+}
+#piechart svg rect {
+  fill: none;
+}
+#infor {
+  position: absolute;
+  right: 7%;
+  top: 13%;
+}

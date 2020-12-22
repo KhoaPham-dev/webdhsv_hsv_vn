@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+.qrPreviewVideo {
+  width: 40%;
+}
+#diem-danh {
+  display: none;
+}
+input,
+button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+button {
+  margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 576px) {
+  .main-div,
+  .loggedin-div {
+    width: 90%;
+  }
+  .masthead#portfolio {
+    margin-top: 100px;
+  }
+  .qrPreviewVideo {
+    width: 60%;
+  }
+}

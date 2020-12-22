@@ -1,0 +1,8 @@
+- Trang điểm danh:
+	+ Điểm danh qua camera quét mã QR (OK)
+	+ Hoặc nhập input (OK)
+- Trang hiển thị:
+	+ Biểu đồ (OK)
+	+ Thông tin, hình đại biểu (OK)
+- Database (firebase) (OK)
+- Upload data from SS to DB

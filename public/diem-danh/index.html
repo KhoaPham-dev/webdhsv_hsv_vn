@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <title>Trang điểm danh</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- jsqrscanner -->
+    <script
+      type="text/javascript"
+      src="./jsPretty/jsqrscanner.nocache.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body id="page-top">
+    <div id="nhappass">
+      <label for="password">Nhập password</label>
+      <input type="text" name="password" id="password" />
+      <button type="button" id="btn">Enter</button>
+    </div>
+
+    <div id="diem-danh" class="container text-center my-auto">
+      <h1 class="mb-1">Điểm danh</h1>
+      <h3 class="mb-5">
+        <p><em>Quét mã QR để điểm danh đại biểu tại đây</em></p>
+      </h3>
+      <div class="qrscanner" id="scanner"></div>
+      <div class="form-field form-field-memo">
+        <div class="md-form form-sm">
+          <label for="scannedTextMemo" class="active">Mã số đại biểu</label>
+          <input
+            name="scannedTextMemo"
+            id="scannedTextMemo"
+            class="form-control"
+          />
+          <br />
+          <button
+            style="margin-top: 10px"
+            class="btn btn-primary"
+            type="button"
+            onclick="btnQRCodeScanned()"
+          >
+            Nếu không quét được thì điền MSDB bên trên và nhấp vào nút này
+          </button>
+        </div>
+        <div class="text-center mt-1-half">
+          <i id="wait" class="wait" style="display: none">Đang xử lý...</i>
+        </div>
+      </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCqNpTFYxF2eQ1XD3HeV6x1y-I8b6al5s",
+        authDomain: "dhdb-hsv.firebaseapp.com",
+        projectId: "dhdb-hsv",
+        storageBucket: "dhdb-hsv.appspot.com",
+        messagingSenderId: "1008123776206",
+        appId: "1:1008123776206:web:50c2d7a549f79eaabb149f",
+        measurementId: "G-Y7H6CVYW48",
+        databaseURL: "https://dhdb-hsv-default-rtdb.firebaseio.com",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.database();
+      const googleProvider = new firebase.auth.GoogleAuthProvider();
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
