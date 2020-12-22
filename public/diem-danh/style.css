@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-color: #b8e5fd;
 }
 .qrPreviewVideo {
   width: 40%;
@@ -20,7 +21,13 @@ a {
 button {
   margin-bottom: 8px;
 }
-
+#scannedTextMemo {
+  height: 50px;
+}
+#scannedTextMemo::placeholder {
+  text-align: center;
+  font-size: 18px;
+}
 @media only screen and (max-width: 576px) {
   .main-div,
   .loggedin-div {

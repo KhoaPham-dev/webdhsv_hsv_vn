@@ -1,6 +1,7 @@
 let attended = [];
 let total = 0;
 let queue = [];
+
 db.ref("users/").once("value", (snapshot) => {
   snapshot.forEach((dv) => {
     dv.child("members").forEach((me) => {
@@ -42,9 +43,10 @@ function displayInfor(aMem) {
     aMem.msdb.length >= 3
       ? aMem.msdb
       : ((msdb = "00" + aMem.msdb), msdb.substring(msdb.length - 3))
-  }.jpg" style="width: ${window.screen.width * 0.3}px;"/>`;
+  }.jpg" style="width: ${window.screen.width * 0.24}px;"/>`;
 }
 function loadChart(rdata) {
+  document.getElementById("attended").innerText = attended.length;
   console.log(rdata);
   // Load google charts
   google.charts.load("current", { packages: ["corechart"] });
@@ -62,6 +64,9 @@ function loadChart(rdata) {
       var options = {
         width: window.screen.width * 0.45,
         height: window.screen.width * 0.25,
+        pieHole: 0.4,
+        legend: { position: "none" },
+        colors: ["#0092DF", "#FF0000"],
       };
 
       // Display the chart inside the <div> element with id="piechart"

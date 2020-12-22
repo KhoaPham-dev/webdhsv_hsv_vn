@@ -134,9 +134,10 @@ async function uploadDataToDatabase(row) {
   let ngaySinh = row[4];
   let chucVu = row[5];
 
-  msdb.length >= 3
-    ? msdb
-    : ((msdb = "00" + msdb), msdb.substring(msdb.length - 3));
+  msdb =
+    msdb.length >= 3
+      ? msdb
+      : ((msdb = "00" + msdb), msdb.substring(msdb.length - 3));
   updates[`users/${idDonVi}/members/${idDaiBieu}/msdb`] = msdb;
   updates[`users/${idDonVi}/members/${idDaiBieu}/toThaoLuan`] = toThaoLuan;
   updates[`users/${idDonVi}/members/${idDaiBieu}/hoVaTen`] = hoVaTen;

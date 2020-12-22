@@ -12,9 +12,12 @@
   </head>
   <body>
     <div id="piechart"></div>
-    <div class="space"></div>
+    <div class="statistic">
+      Tổng số Đại biểu: 420 đại biểu <br />
+      Số đại biểu có mặt: <span id="attended"></span> đại biểu
+    </div>
     <div id="infor">
-      <img src="./the_dai_bieu_default.png" alt="" />
+      <img id="image_infor" src="./the_dai_bieu_default.png" alt="" />
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -43,5 +46,11 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
     <script src="index.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("image_infor").style.width =
+          window.screen.width * 0.24 + "px";
+      });
+    </script>
   </body>
 </html>

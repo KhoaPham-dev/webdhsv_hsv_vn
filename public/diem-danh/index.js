@@ -1,5 +1,6 @@
 let msdb = document.getElementById("scannedTextMemo");
 let wait = document.getElementById("wait");
+let infor = document.getElementById("infor");
 jsqrscanner.succeeded = jsqrscanner();
 
 document.getElementById("btn").addEventListener("click", function () {
@@ -31,6 +32,10 @@ function submitCheckIn() {
                   isFinded = true;
                   wait.innerText = "Hoàn thành";
                   wait.style.color = "green";
+                  document.getElementById("tendonvi").innerText =
+                    dataDonVi.tenDonVi;
+                  document.getElementById("chucvu").innerText =
+                    dataDonVi.members[`${j}`].hoVaTen;
                 }
               }
               if (isFinded) {

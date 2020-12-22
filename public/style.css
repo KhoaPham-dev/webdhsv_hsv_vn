@@ -5,14 +5,22 @@ body {
 }
 #piechart {
   position: absolute;
-  left: 3%;
-  top: 30%;
+  left: 2%;
+  top: 25%;
 }
 #piechart svg rect {
   fill: none;
 }
 #infor {
   position: absolute;
-  right: 7%;
-  top: 13%;
+  right: 11%;
+  top: 20%;
+}
+.statistic {
+  font-size: 18px;
+  position: absolute;
+  bottom: 20%;
+  left: 16%;
+  color: red;
+  font-weight: 900;
 }
