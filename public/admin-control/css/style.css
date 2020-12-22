@@ -1,0 +1,267 @@
+body {
+  overflow: auto;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  background-color: #b8e5fd;
+}
+/* #region login */
+input,
+button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+.sectionAddMem {
+  display: none;
+  padding-top: 10px;
+}
+.main-div {
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  text-align: center;
+}
+.main-div form {
+  width: 30%;
+  margin: 0px auto;
+}
+.main-div input {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  padding: 15px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div input:focus {
+  border: 1px solid #777;
+}
+
+.main-div button,
+.loggedin-div button {
+  background: #5d8ffc;
+  color: #fff;
+  border: 1px solid #5d8ffc;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.main-div button:hover,
+.loggedin-div button:hover {
+  background: #fff;
+  color: #5d8ffc;
+  border: 1px solid #5d8ffc;
+  cursor: pointer;
+}
+.telephone-ico {
+  width: 20px;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+button {
+  margin-bottom: 8px;
+}
+/*#endregion RegionName*/
+
+/* #region list member */
+
+section#sectionAddMem {
+  padding-bottom: 20px;
+}
+table {
+  border-collapse: collapse;
+  min-width: 100%;
+  background: #fff;
+}
+
+th {
+  background-color: #0092df;
+  font-weight: bold;
+  color: #fff;
+}
+
+td,
+th {
+  padding: 1em 1.5em;
+  text-align: left;
+  white-space: pre;
+}
+/* plus button */
+tbody #addingRow :first-child {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+tbody #addingRow :first-child:hover {
+  font-size: 22px;
+}
+/* end of plus button */
+
+tbody tr:nth-child(2n-1) {
+  background-color: #f5f5f5;
+  transition: all 0.125s ease-in-out;
+}
+tbody tr:hover {
+  background-color: rgba(50, 98, 149, 0.3);
+}
+
+.pendingAdditionInput {
+  width: 100%;
+}
+.optionsPending,
+.optionsList {
+  display: flex;
+}
+.addInputRow {
+  font-size: 25px;
+  color: green;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+.rmInputRow {
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addInputRow:hover,
+.rmInputRow:hover {
+  font-size: 27px;
+}
+.editRow {
+  font-size: 25px;
+  color: green;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+.rmRow {
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.editRow:hover,
+.rmRow:hover {
+  font-size: 27px;
+}
+/* loader */
+.loader {
+  border: 7px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 7px solid #070707;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* end of loader */
+.table {
+  display: flex;
+  justify-content: start;
+}
+.table > div > div {
+  padding: 20px 0 15px 0;
+  border-right: 1px solid rgb(209, 199, 199);
+  background: rgb(95, 171, 201);
+  padding-left: 5px;
+}
+.table > div {
+  overflow: hidden;
+}
+.table > div > input,
+.table > div > select {
+  width: 100%;
+}
+
+.row {
+  margin: 0 auto;
+  justify-content: center;
+  min-width: 100%;
+}
+
+#edit-major,
+#major {
+  width: calc(100% - 2rem);
+  margin-left: 2rem;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #4285f4 !important;
+  border-color: #4285f4 !important;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9 !important;
+  /* border-color: #0062cc; */
+}
+a.bg-primary:focus,
+a.bg-primary:hover,
+button.bg-primary:focus,
+button.bg-primary:hover {
+  background-color: #4285f4 !important;
+}
+.bg-primary {
+  background-color: #0069d9 !important;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+  color: #0069d9;
+}
+.animation-example {
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+
+@keyframes example {
+  0% {
+    margin-right: -20px;
+  }
+  25% {
+    margin-right: auto;
+  }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* #endregion list member */
