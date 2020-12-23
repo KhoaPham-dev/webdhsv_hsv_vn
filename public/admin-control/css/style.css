@@ -250,6 +250,13 @@ button.bg-primary:hover {
   animation-duration: 0.5s;
 }
 
+.reset-database {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: none;
+}
+
 @keyframes example {
   0% {
     margin-right: -20px;

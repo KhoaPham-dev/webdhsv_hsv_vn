@@ -32,74 +32,88 @@ const setupUI = (input) => {
   if (input === "123456788") {
     document.getElementById("login_div").style.display = "none";
     document.getElementById("sectionAddMem").style.display = "block";
+    document.getElementById("reset-database").style.display = "block";
     renderCurrentMember();
   }
 };
 
 //Render current thi sinh
 function renderCurrentMember() {
-  let totalAttending = 0;
-  db.ref("users/")
-    .once("value")
-    .then((snapshot) => {
-      let docs = snapshot.val();
-      let count = 0;
-
-      document.getElementById("listMemTb").innerHTML = "";
-      for (let doc in docs) {
-        let u = docs[doc]["members"];
-        let countGroup = 0;
-        let tenDonVi = docs[doc]["tenDonVi"];
-        for (let m in u) {
-          count++;
-          countGroup++;
-          addingCardMem(u[m], tenDonVi, count, countGroup);
-          if (u[m].checkin == 1) totalAttending++;
-        }
+  db.ref("users/").on("value", (snapshot) => {
+    let totalAttending = 0;
+    let docs = snapshot.val();
+    let data = [];
+    let count = 0;
+    document.getElementById("listMemTb").innerHTML = "";
+    for (let doc in docs) {
+      let u = docs[doc]["members"];
+      let tenDonVi = docs[doc]["tenDonVi"];
+      for (let m in u) {
+        count++;
+        data.push({
+          ...u[m],
+          tenDonVi,
+        });
+        if (u[m].checkin == 1) totalAttending++;
       }
-      document.getElementById(
-        "totalAttending"
-      ).innerText = `${totalAttending} / ${count}`;
-      //End of all loader
-      LOADERS.rowTable.switchLoading(false);
+    }
+    //Sorting data by msdb ascending
+    data.sort((a, b) => Number(a.msdb) - Number(b.msdb));
+
+    //render data's row
+    data.forEach((e) => {
+      addingCardMem(e);
     });
+
+    document.getElementById(
+      "totalAttending"
+    ).innerText = `${totalAttending} / ${count}`;
+    //End of all loader
+    LOADERS.rowTable.switchLoading(false);
+  });
 }
-function addingCardMem(data, tenDonVi, count, countGroup) {
-  let headRow = "";
-  if (countGroup === 1) {
-    headRow = `
-              <td></td>
-              <td></td>
-              <td></td>
-              <h6>${tenDonVi}</h6>
-              <td></td>
-              <td></td>
-            `;
-  }
-  let aMem = `<td class='stt'>${count}</td>
+function addingCardMem(data) {
+  let aMem = `<td class='msdb'>${data.msdb}</td>
             <td class='hovaten'>${data.hoVaTen}</td>
-            <td class='ngaysinh'>${data.ngaySinh}</td>
             <td class='chucvu'>${
               data.chucVu.length >= 65
                 ? data.chucVu.substring(0, 66) + "..."
                 : data.chucVu
             }</td>
-            <td class='tothaoluan'>${data.toThaoLuan}</td>
-            <td class='msdb'>${data.msdb}</td>`;
-
-  if (headRow) {
-    let newHeadRow = document.createElement("tr");
-    newHeadRow.innerHTML = headRow;
-    document.getElementById("listMemTb").appendChild(newHeadRow);
-  }
+            <td class='tothaoluan'>${data.toThaoLuan}</td>`;
 
   let newRow = document.createElement("tr");
   newRow.id = `member_${data.msdb}`;
   newRow.innerHTML = aMem;
 
   if (data.checkin == 1) {
-    newRow.style.backgroundColor = "#C1D0DF";
+    newRow.style.backgroundColor = "#FF0000";
   }
 
   document.getElementById("listMemTb").appendChild(newRow);
+}
+
+// Reset Database
+document.getElementById("btnResetDB").addEventListener("click", () => {
+  if (window.confirm("Bạn có chắc muốn reset lại dữ liệu điểm danh?")) {
+    resetCheckin();
+  }
+});
+function resetCheckin() {
+  db.ref("users/")
+    .once("value", (snapshot) => {
+      snapshot.forEach((dv) => {
+        dv.child("members").forEach((me) => {
+          let updates = {};
+          updates[`users/${dv.key}/members/${me.key}/checkin`] = 0;
+          db.ref().update(updates);
+        });
+      });
+    })
+    .then(() => {
+      alert("Thành công!");
+    })
+    .catch((err) => {
+      alert("Reset thất bại! Vui lòng thử lại");
+    });
 }
